@@ -4,7 +4,9 @@
 
 ### It has three functions
 1 . STT using whisper
+
 2 . Doc summary using OpenAI
+
 3 . Doc keyword extraction using OpenAI
 
 # installation
