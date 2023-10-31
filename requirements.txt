@@ -1,0 +1,9 @@
+openai-whisper
+pyannote.audio
+librosa
+torchaudio
+git+git+https://github.com/jianfch/stable-ts.git
+langchain
+openai
+streamlit 
+streamlit-audiorec
