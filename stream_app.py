@@ -71,7 +71,6 @@ class Meeting_Recorder():
             # raise Exception(f"audio's type is not string")
             raise Exception(f"audio's type is {type(audio)}")
 
-    # audio 부분 체크 입력이  1, xxx 로 들어감 답은 , xxxx로 들어가야함
     def transcribe(self):
         result = self.whisper_model.transcribe(self.audio.to(device))
         for i in result.segments:
@@ -129,7 +128,7 @@ class Meeting_Recorder():
         gc.collect()
         torch.cuda.empty_cache()
 
-st.title(" Meeting Recorder Feat. 이강희 :small_airplane: ")
+st.title(" Meeting Recorder Feat. KH :small_airplane: ")
 st.subheader('STT :black_circle_for_record:')
 
 empty1,load_audio,empty2 = st.columns([0.1,1.0,0.1])
@@ -138,10 +137,8 @@ empty1,stt_,select,empty2 = st.columns([0.1,0.5,0.5,0.1])
 empty1,share_print,summary_print, word_extraction_print,empty2 = st.columns([0.1,0.3,0.3,0.3,0.1])
 empty1,text_box,empty2 = st.columns([0.1,1.0,0.1])
 
-# st.session_state = Meeting_Recorder() 향후 참고
-
 with load_audio:
-    file = st.file_uploader("파일 선택(wav or mp3)", type = ['wav','mp3'])
+    file = st.file_uploader("select file(wav or mp3)", type = ['wav','mp3'])
     time.sleep(3)
     if file is not None:
         ext = file.name.split('.')[-1]
@@ -160,7 +157,7 @@ with stt_:
     genre = st.radio(
         "select audio file",
         ["upload File", "Record File"])
-    # 옆에 배치
+
 with select:
     st.text(genre)
     STT = st.button("STT", type="primary")
